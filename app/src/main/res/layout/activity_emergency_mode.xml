@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvEmergencyTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Modo Emergencia (Fail-Secure)"
+        android:textAppearance="?attr/textAppearanceHeadlineSmall"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFailSecureStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Estado Fail-Secure: ACTIVO\nBarrera por defecto: CERRADA (O)"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        app:layout_constraintTop_toBottomOf="@id/tvEmergencyTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnForceClose"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:text="Forzar cierre seguro (O)"
+        app:layout_constraintTop_toBottomOf="@id/tvFailSecureStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEmergencyOpen"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:text="Apertura manual emergencia (A)"
+        app:layout_constraintTop_toBottomOf="@id/btnForceClose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F9"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvDashTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Panel Smart Parking IoT"
+            android:textColor="#0F172A"
+            android:textAppearance="?attr/textAppearanceHeadlineMedium"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDashSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Monitoreo local, sincronización Wi-Fi y control HC-05"
+            android:textColor="#475569"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            app:layout_constraintTop_toBottomOf="@id/tvDashTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Tarjeta de estado general -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeColor="#E2E8F0"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDashSubtitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ESTADO DEL SISTEMA"
+                    android:textColor="#1E3A5F"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+
+                <TextView
+                    android:id="@+id/tvStatusInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="5dp"
+                    android:textColor="#1E293B"
+                    android:text="Capacidad máxima: 20\nVehículos registrados: 0\nEspacios disponibles: 20\nModo: Normal\nBluetooth HC-05: Desconectado\nSincronización: Inactiva"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta de sincronización Wi-Fi con casilla estilizada -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSync"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeColor="#E2E8F0"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/cardStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SINCRONIZACIÓN WI-FI (PUERTO 5055)"
+                    android:textColor="#1E3A5F"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPeerIp"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="IP del otro celular"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:helperText="Ejemplo: 192.168.1.50"
+                    app:placeholderText="192.168.1.50">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPeerIp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSyncNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Sincronizar estado por Wi-Fi"
+                    android:textStyle="bold"
+                    app:backgroundTint="#1E3A5F"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Acciones principales -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGoManual"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:text="Control manual"
+            android:textStyle="bold"
+            app:backgroundTint="#0F766E"
+            app:cornerRadius="14dp"
+            app:layout_constraintTop_toBottomOf="@id/cardSync"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGoEmergency"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="Modo emergencia"
+            android:textStyle="bold"
+            app:backgroundTint="#B3261E"
+            app:cornerRadius="14dp"
+            app:layout_constraintTop_toBottomOf="@id/btnGoManual"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
